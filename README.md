@@ -7,14 +7,25 @@ To master the Java language at an intermediate level, including polymorphism, ex
 Project Includes:
 
 (1)non-trivial application with several classes. 
+
 (2)text files, 
+
 (3)polymorphism, 
+
 (4)exception handling, 
+
 (5)event handling,
+
 (6)collections,
+
 (7)multimedia programming,
+
 (8)class derivation and polymorphism,
+
 (9)strings, arrays and dynamic allocation in Java,
+
 (10)ArrayLists for indefinite amounts of data,
+
 (11)multiple windows,
+
 (12)object files. 
