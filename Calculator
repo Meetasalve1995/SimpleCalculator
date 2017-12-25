@@ -1,0 +1,328 @@
+
+import java.io.File;
+
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.stage.Stage;
+import javafx.scene.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+
+
+public class Calculator extends Application { //Point #1 - Class
+
+	TextField txt1 = new TextField();
+	
+	private void add() //Ensures that the first element is not an operator
+	 {
+		 if(txt1.getText().equals("")){
+			 txt1.setText(txt1.getText()); 
+		 }
+		 else{
+		 txt1.setText(txt1.getText()+"+");}
+	 }
+	
+	 private void sub() //Ensures that the first element is not an operator
+	 {
+		 if(txt1.getText().equals("")){
+			 txt1.setText(txt1.getText()); 
+		 }
+		 else{
+		 txt1.setText(txt1.getText()+"-");}
+	 }
+	 
+	 private void prod() //Ensures that the first element is not an operator
+	 {
+		 if(txt1.getText().equals("")){
+			 txt1.setText(txt1.getText()); 
+		 }
+		 else{
+		 txt1.setText(txt1.getText()+"*");}
+	 }
+	 
+	 private void div() //Ensures that the first element is not an operator
+	 {
+		 if(txt1.getText().equals("")){
+			 txt1.setText(txt1.getText()); 
+		 }
+		 else{
+		 txt1.setText(txt1.getText()+"/");}
+	 }
+	 
+	 private void mod() //Ensures that the first element is not an operator
+	 {
+		 if(txt1.getText().equals("")){
+			 txt1.setText(txt1.getText()); 
+		 }
+		 else{
+		 txt1.setText(txt1.getText()+"%");}
+	 }
+	 	 
+	 private void square() 
+	 {   String str = txt1.getText();
+	 
+	 try{
+	 if(!(txt1.getText().equals("") || txt1.getText().contains("+") || txt1.getText().contains("-") || 
+			 txt1.getText().contains("*") || txt1.getText().contains("/") || txt1.getText().contains("%"))){
+		 double result = 0;
+		 double bf = Double.parseDouble(str);
+		 result = bf * bf;
+		
+		 txt1.setText(""+result);
+		 }
+	 }catch(Exception e)//Exception handling - point #4
+	 {
+		 txt1.setText("Error: Inavlid Input!");
+	 }
+	 
+	 }
+	  
+	 private void sqroot() 
+	 {   String str = txt1.getText();
+	 try{
+	 if(!(txt1.getText().equals("") || txt1.getText().contains("+") || txt1.getText().contains("-") || 
+			 txt1.getText().contains("*") || txt1.getText().contains("/") || txt1.getText().contains("%"))){
+		 double result = 0;
+		 double bf = Double.parseDouble(str);
+		 result = Math.sqrt(bf);
+		
+		 txt1.setText(""+result);
+		 }
+	 }catch(Exception e)
+	 {
+		 txt1.setText("Error: Invalid Input!");
+	 }
+	 
+	 }
+	 
+	 private void sin() //Just takes one operator
+	 {   String str = txt1.getText();
+	 try{
+	 if(!(txt1.getText().equals("") || txt1.getText().contains("+") || txt1.getText().contains("-") || 
+			 txt1.getText().contains("*") || txt1.getText().contains("/") || txt1.getText().contains("%"))){
+		 double result = 0;
+		 double bf = Double.parseDouble(str);
+		 result = Math.sin(bf);
+		
+		 txt1.setText(""+result);
+		 }
+	 }catch(Exception e)
+	 {
+		 txt1.setText("Error: Inavlid Input!");
+	 }
+	 
+	 }
+	 
+	 private void sinh() //Just takes one operator
+	 {   String str = txt1.getText();
+	 try{
+	 if(!(txt1.getText().equals("") || txt1.getText().contains("+") || txt1.getText().contains("-") || 
+			 txt1.getText().contains("*") || txt1.getText().contains("/") || txt1.getText().contains("%"))){
+		 double result = 0;
+		 double bf = Double.parseDouble(str);
+		 result = Math.sinh(bf);
+		
+		 txt1.setText(""+result);
+		 }
+	 }catch(Exception e)
+	 {
+		 txt1.setText("Error: Inavlid Input!");
+	 }
+	 
+	 }
+	 
+	 private void reciprocal() //Just takes one operator
+	 {   String str = txt1.getText();
+	 try{
+	 if(!(txt1.getText().equals("") || txt1.getText().contains("+") || txt1.getText().contains("-") || 
+			 txt1.getText().contains("*") || txt1.getText().contains("/") || txt1.getText().contains("%"))){
+		 double result = 0;
+		 double bf = Double.parseDouble(str);
+		 result = 1 / bf;
+		
+		 txt1.setText(""+result);
+		 }
+	 }catch(Exception e)
+	 {
+		 txt1.setText("Error: Inavlid Input!");
+	 }
+	}
+	 
+	 private void dot() //Just takes one operator
+	 {   String str = txt1.getText();
+	 if(str.equals("")){
+		 txt1.setText("0.");
+		 }
+	 else
+	 {
+		 txt1.setText(str+".");
+	 }
+	 
+	 }
+	 
+	 public void newstage(Scene scene){
+			Stage st = new Stage();
+		    st.setTitle("The Calculator");
+		    st.setScene(scene);
+		    st.show();
+		}
+  @Override // Override the start method in the Application class
+  public void start(Stage primaryStage) {
+	  
+	 //TextField txt1 = new TextField();
+	 txt1.setPrefWidth(250);
+	 
+	 Button btn0 = new Button("0");
+	 Button btn1 = new Button("1");
+	 Button btn2 = new Button("2");
+	 Button btn3 = new Button("3");
+	 Button btn4 = new Button("4");
+	 Button btn5 = new Button("5");
+	 Button btn6 = new Button("6");
+	 Button btn7 = new Button("7");
+	 Button btn8 = new Button("8");
+	 Button btn9 = new Button("9");
+	 
+	 //Operators
+	 Button btnadd = new Button("+");
+	 Button btnsub = new Button("-");
+	 Button btnprod = new Button("X");
+	 Button btndiv = new Button("/");
+	 Button btnsq = new Button("X2");
+	 Button btnsqrt = new Button("Sqrt");
+	 Button btnmod = new Button("%");
+	 Button btnclr = new Button("C");
+	 Button btnequal = new Button("=");
+	 Button btndot = new Button(".");
+	 Button btnrec = new Button("1/x");
+	 Button btnsin = new Button("Sin");
+	 Button btnsinh = new Button("Sinh");
+	 
+
+	 //Events
+	
+     btn0.setOnAction(e -> txt1.setText(txt1.getText()+"0"));
+	 btn1.setOnAction(e -> txt1.setText(txt1.getText()+"1"));
+	 btn2.setOnAction(e -> txt1.setText(txt1.getText()+"2"));
+	 btn3.setOnAction(e -> txt1.setText(txt1.getText()+"3"));
+	 btn4.setOnAction(e -> txt1.setText(txt1.getText()+"4"));
+	 btn5.setOnAction(e -> txt1.setText(txt1.getText()+"5"));
+	 btn6.setOnAction(e -> txt1.setText(txt1.getText()+"6"));
+	 btn7.setOnAction(e -> txt1.setText(txt1.getText()+"7"));
+	 btn8.setOnAction(e -> txt1.setText(txt1.getText()+"8"));
+	 btn9.setOnAction(e -> txt1.setText(txt1.getText()+"9"));
+	 btnadd.setOnAction(e -> add());//Event Handling - Part #5
+	 btnsub.setOnAction(e -> sub());
+	 btnprod.setOnAction(e -> prod());
+	 btndiv.setOnAction(e -> div());
+	 btnmod.setOnAction(e -> mod());
+	 btnrec.setOnAction(e -> reciprocal());
+	 btnsin.setOnAction(e -> sin());
+	 btnsinh.setOnAction(e -> sinh());
+	 btnsqrt.setOnAction(e ->  sqroot());
+	 btndot.setOnAction(e -> dot());
+	 btnsq.setOnAction(e -> square());//Gives square of what exists
+	 
+		equals eq = new equals(); //eq is an Object - point #12
+	 btnequal.setOnAction(e -> txt1.setText(""+eq.equal(txt1.getText())));//Polymorphism - Point #3
+	 btnclr.setOnAction(e -> txt1.setText(""));//Clears field
+	  
+    /*Label lb2 = new Label("Circle", new Circle(50, 50, 25));
+    lb2.setContentDisplay(ContentDisplay.TOP);
+    lb2.setTextFill(Color.ORANGE);*/
+    //VBox vb = new VBox(5);
+    //vb.getChildren().addAll(txt1);
+    
+	 //Display Them
+	  GridPane gridPane = new GridPane();
+	  gridPane.setAlignment(Pos.TOP_LEFT);
+	  
+	  gridPane.setHgap(45);
+	  gridPane.setVgap(10);
+	  
+	  //Row1
+	  gridPane.add(txt1,0,0,5,1);
+	  
+	  //Row2
+	  gridPane.add(btn7,0,1);
+	 gridPane.add(btn8,1,1);
+	 gridPane.add(btn9,2,1);
+	 gridPane.add(btnadd,3,1);
+	 gridPane.add(btnsub,4,1);
+	 
+	//Row3
+	  gridPane.add(btn4,0,2);
+	 gridPane.add(btn5,1,2);
+	 gridPane.add(btn6,2,2);
+	 gridPane.add(btnprod,3,2);
+	 gridPane.add(btndiv,4,2);
+	 
+		//Row4
+	  gridPane.add(btn1,0,3);
+	 gridPane.add(btn2,1,3);
+	 gridPane.add(btn3,2,3);
+	 gridPane.add(btnsq,3,3);
+	 gridPane.add(btnsqrt,4,3);
+	 
+		//Row5
+	  gridPane.add(btn0,0,4);
+	 gridPane.add(btndot,1,4);
+	 gridPane.add(btnrec,2,4);
+	 gridPane.add(btnsin,3,4);
+	 gridPane.add(btnsinh,4,4);
+	 
+	//Row6
+	  gridPane.add(btnmod,0,5);
+	 gridPane.add(btnclr,3,5);
+	 gridPane.add(btnequal,4,5);
+	 
+	//Row8 (Jumped 1)
+	 Text text1 = new Text(20,20,"For X2,Sqrt,1/x,Sin and Sinh You enter number" //Text - Point #2
+	 		+ " before pressing operand");
+	  text1.setFont(Font.font("Courier",FontWeight.BOLD,FontPosture.ITALIC,10));
+	  text1.setFill(Color.BROWN);
+	  
+	  gridPane.add(text1,0,7,5,2);
+	  
+	  
+	  File file = new File("C://Users/ibrahims/Desktop/makokha/Eclipse Projects/Simple (Java FX) Calculator/src/calc.jpg");
+      Image image1 = new Image(file.toURI().toString());
+      
+      final ImageView selectedImage = new ImageView(); 
+      
+      selectedImage.setImage(image1);//Multimedia - Part #7
+	  
+	  	  
+	// Create a scene and place it in the stage
+	    Scene scene = new Scene(gridPane, 390, 250);
+	  Button btnopen = new Button("Click To Open JavaFx Calculator");
+	  btnopen.autosize();
+		 btnopen.setOnAction(e -> newstage(scene));//New Window, Multiple windows - Part 11
+		 
+		 VBox vb = new VBox(5);
+		    vb.getChildren().addAll(btnopen);
+		    vb.getChildren().addAll(selectedImage);
+		    
+	Scene scene1 = new Scene(vb, 390, 250);
+    primaryStage.setTitle("A Simple (JavaFX) Calculator Interface"); // Set the stage title
+    primaryStage.setScene(scene1); // Place the scene in the stage
+    primaryStage.show(); // Display the stage
+  }
+
+  /**
+   * The main method is only needed for the IDE with limited
+   * JavaFX support. Not needed for running from the command line.
+   */
+  public static void main(String[] args) {
+    launch(args);
+  }
+}
