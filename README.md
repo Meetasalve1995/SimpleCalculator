@@ -5,6 +5,7 @@ Project Objective:
 To master the Java language at an intermediate level, including polymorphism, exception handling, files, object files, and collections. To build a non-trivial application with several classes. To master event-driven multimedia programming in the environment of Java FX.I have developed an simple calculator application with Java FX software platform. 
 
 Project Includes:
+
 (1)non-trivial application with several classes. 
 (2)text files, 
 (3)polymorphism, 
